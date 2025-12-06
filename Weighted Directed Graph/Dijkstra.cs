@@ -21,7 +21,7 @@ class Dijkstra
 
         while (unvisited.Count > 0)
         {
-            Node? current = null;
+            Node? current = null!;
             double smallestDistance = double.PositiveInfinity;
             foreach (var n in unvisited)
             {
@@ -32,7 +32,7 @@ class Dijkstra
                 }
             }
 
-            if (current == null)
+            if (current == null!)
                 break;
 
             if (current == end)
@@ -66,4 +66,6 @@ class Dijkstra
         path.Reverse();
         return path;
     }
+
+    
 }
