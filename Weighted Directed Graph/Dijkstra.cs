@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 class Dijkstra
 {
-    public static List<Node> FindShortestPath(Graph graph, string startName, string targetName)
+    public static List<Node> FindShortestPath(Graph graph, string startName, string endName)
     {
         var nodes = graph.GetAllNodes();
         var unvisited = new HashSet<Node>();
@@ -16,13 +16,13 @@ class Dijkstra
         }
 
         Node start = graph.GetNode(startName);
-        Node target = graph.GetNode(endName);
+        Node end = graph.GetNode(endName);
         start.Distance = 0;
 
         while (unvisited.Count > 0)
         {
-            Node current = null;
-            double smallestDist = double.PositiveInfinity;
+            Node? current = null;
+            double smallestDistance = double.PositiveInfinity;
             foreach (var n in unvisited)
             {
                 if (n.Distance < smallestDistance)
@@ -35,7 +35,7 @@ class Dijkstra
             if (current == null)
                 break;
 
-            if (current == target)
+            if (current == end)
                 break;
 
             unvisited.Remove(current);
@@ -56,7 +56,7 @@ class Dijkstra
         }
 
         var path = new List<Node>();
-        Node pathNode = target;
+        Node pathNode = end;
         while (pathNode != null)
         {
             path.Add(pathNode);
