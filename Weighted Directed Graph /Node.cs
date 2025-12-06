@@ -11,11 +11,11 @@ class Node
     
     public class Coordinates
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
     }
 
-    public Node (string name, int x, int y)
+    public Node (string name, double x, double y)
     {
         Name = name;
         Position = new Coordinates
