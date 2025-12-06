@@ -3,9 +3,8 @@ class Node
     public string Name { get; set;}
     public Coordinates Position { get; set; }
     public double Distance { get; set; } = double.PositiveInfinity;
-    public Node Previous { get; set; } = null;
-    
-    List<Edge> OutgoingEdges { get; set; } = new List<Edge>();
+    public Node? Previous { get; set; } = null; 
+    public List<Edge> OutgoingEdges { get; set; } = new List<Edge>();
 
     public void AddEdge(Node to, double weight)
     {
