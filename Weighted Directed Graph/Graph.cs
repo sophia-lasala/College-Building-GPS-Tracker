@@ -2,6 +2,11 @@ class Graph
 {
     private Dictionary<string, Node> nodes = new Dictionary<string, Node>();
 
+    public Dictionary<string, Node> GetAllNodes()
+    {
+        return nodes;
+    }
+    
     public void AddNode(Node node)
     {
         nodes[node.Name] = node;
