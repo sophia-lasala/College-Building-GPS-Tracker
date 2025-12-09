@@ -1,36 +1,37 @@
 class Graph
 {
-    private Dictionary<string, Node> nodes = new Dictionary<string, Node>();
+    private Dictionary<string, Node> nodes = new Dictionary<string, Node>(); //houses strings (names) and Node objects
 
-    public Dictionary<string, Node> GetAllNodes()
+    public Dictionary<string, Node> GetAllNodes() //accesses all nodes  
     {
         return nodes;
     }
     
-    public void AddNode(Node node)
+    public void AddNode(Node node) //how nodes are added to Dictionary 
     {
         nodes[node.Name] = node;
     }
 
-    public Node GetNode(string name)
+    public Node GetNode(string name) //accessing a specific node 
     {
         return nodes[name];
     }
 
-    public void AddEdge(string fromName, string toName, double weight)
+    public void AddEdge(string fromName, string toName, double weight) //how edges are added to Dictionary 
     {
         Node from = GetNode(fromName);
         Node to = GetNode(toName);
         from.AddEdge(to, weight);
     }
 
-    public void AddBidirectionalEdge(string a, string b, double weight)
+    public void AddBidirectionalEdge(string a, string b, double weight) //this is a weighted directed graph however the directions 
+        //are only needed to prevent pathfinding to skip hallways, therefore each edge that is allowed is bidirectional 
     {
-        AddEdge(a, b, weight);
-        AddEdge(b, a, weight);
+        AddEdge(a, b, weight); //puts in both the forward direction
+        AddEdge(b, a, weight); //and the reverse direction when following this method 
     }
 
-    public void InitializeBuilding()
+    public void InitializeBuilding() //manually populates nodes and edges necessary for the building, *needs to be called* 
     {
         //From left to right
         // Nodes
