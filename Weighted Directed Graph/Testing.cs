@@ -2,6 +2,13 @@ class Testing
 {
     public static void Main(string[] args)
     {
+        //Some Notes: 
+        //No hallways mentioned anywhere because they have ugly names and they're just for internal use (really ugly names) 
+        //Besides the stuff that prints things out everything else is necessary for the Main 
+        //startNode and endNode need variables here and to be user inputted in whatever way makes sense for the GUI 
+        //Good luck soldier.
+        //Sincerly, 
+        //Sophia I. LaSala 
         Graph building = new Graph(); //object for Graph class
         building.InitializeBuilding(); //populates with all nodes and edges necessary for building
         HistoryManager historyManager = new HistoryManager(); //object for HistoryManager class
